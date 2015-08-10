@@ -104,7 +104,7 @@
                                 var latlng = evt.latlng;
                                 var activeAreasAtPoint = leafletPip.pointInLayer(latlng, lgeojson);
                                 var area_template = '<h5>{name}</h5>';
-                                var warning_template = '<p>Publication time: {publicationTime}</p><p>Warning start time: {warningStartTime}</p><p>Warning end time: {warningEndTime}</p><hr/>';
+                                var warning_template = '<p>Warning start time: {warningStartTime}</p><p>Warning end time: {warningEndTime}</p><p>Publication time: {publicationTime}</p><hr/>';
                                 var innerhtml = popup_template;
                                 var all_warnings = '';
                                 for (var k in activeAreasAtPoint) {
