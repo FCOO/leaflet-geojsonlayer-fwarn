@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery.soap": "~1.6.5"
+    "jquery.soap": "~1.6.5",
+    "leaflet-pip": "~0.1.0"
   }
 }
