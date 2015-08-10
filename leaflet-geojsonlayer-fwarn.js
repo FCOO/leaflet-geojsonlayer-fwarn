@@ -94,7 +94,7 @@
                     };
                     $.soap(soapOptions);
                 });
-                var popup_template = '<div class="fwarn"><h4>Firing warnings</h4>{warnings}<p>{body}</p></div>';
+                var popup_template = '<div class="fwarn"><h3>Firing warnings</h3>{warnings}<p>{body}</p></div>';
                 lgeojson = L.geoJson(geojson, {
                     onEachFeature: function (feature, layer) {
                         // Bind click
@@ -104,7 +104,7 @@
                                 var latlng = evt.latlng;
                                 var activeAreasAtPoint = leafletPip.pointInLayer(latlng, lgeojson);
                                 var area_template = '<h5>{name}</h5>';
-                                var warning_template = '<p>Warning start time: {warningStartTime}</p><p>Warning end time: {warningEndTime}</p><p>Publication time: {publicationTime}</p><hr/>';
+                                var warning_template = '<p>Warning start time: {warningStartTime} UTC</p><p>Warning end time: {warningEndTime} UTC</p><p>Publication time: {publicationTime} UTC</p><hr/>';
                                 var innerhtml = popup_template;
                                 var all_warnings = '';
                                 for (var k in activeAreasAtPoint) {
@@ -119,7 +119,7 @@
                                     all_warnings += area + warnings;
                                 }
                                 innerhtml = innerhtml.replace('{warnings}', all_warnings);
-                                var body = '';
+                                var body = '<h4>Further information (in Danish)</h4>';
                                 for (var k in activeAreasAtPoint) {
                                     var myFeature = activeAreasAtPoint[k].feature;
                                     var myBody = area_template.replace('{name}', myFeature.properties.name);

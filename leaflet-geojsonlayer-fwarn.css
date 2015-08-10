@@ -1,6 +1,10 @@
 .fwarn p {
     margin: 0;
 }
+.fwarn h3 {
+    margin-top: 3px;
+    margin-bottom: 6px;
+}
 .fwarn h4 {
     margin-top: 3px;
     margin-bottom: 6px;
