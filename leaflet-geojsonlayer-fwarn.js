@@ -22,7 +22,10 @@
         onAdd: function (map) {
             var that = this;
             var success_activeareas = function (soapResponse) {
-                var jsonResponse = [soapResponse.toJSON()['Body']['ActiveAreasResponse']['area']][0];
+                var jsonResponse = soapResponse.toJSON()['Body']['ActiveAreasResponse']['area'];
+                if (jsonResponse.constructor !== Array) {
+                    jsonResponse = [jsonResponse];
+                }
                 // We handle warnings per area
                 var activeAreasDict = {};
                 for (var k in jsonResponse) {
@@ -42,41 +45,40 @@
                 // For each active area we ask for static area information
                 activeAreas.forEach(function(activeArea) {
                     var success_staticareainfo = function (soapResponse) {
-                        var areaInfo = [soapResponse.toJSON()['Body']['StaticAreaInfoResponse']['areaInfo']][0];
-                        //activeArea.forEach(function(message) {
-                            var newFeature = {
-                                "type": "Feature",
-                                "geometry": {
-                                    "type": "Polygon",
-                                    "coordinates": [[]]
-                                },
-                                "properties": {
-                                    "areaId": activeArea[0].areaId,
-                                    "name": activeArea[0].name,
-                                    "staticInfoLastModified": activeArea[0].staticInfoLastModified,
-                                    "textInfo": areaInfo.info.textInfo,
-                                }
+                        var areaInfo = soapResponse.toJSON()['Body']['StaticAreaInfoResponse']['areaInfo'];
+                        var newFeature = {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[]]
+                            },
+                            "properties": {
+                                "areaId": activeArea[0].areaId,
+                                "name": activeArea[0].name,
+                                "staticInfoLastModified": activeArea[0].staticInfoLastModified,
+                                "textInfo": areaInfo.info.textInfo,
                             }
-                            var geoPoints = areaInfo.polygon.geoPoint;
-                            geoPoints.sort(function(a, b){
-                                var keyA = parseInt(a.sortIndex),
-                                    keyB = parseInt(b.sortIndex);
-                                // Compare the 2 objects
-                                if (keyA < keyB) return -1;
-                                if (keyA > keyB) return 1;
-                                return 0;
-                            }); 
-                            for (var k in geoPoints) {
-                                var point = geoPoints[k];
-                                var coords = [parseFloat(point.lon),
-                                              parseFloat(point.lat)]
-                                newFeature.geometry.coordinates[0].push(coords);
-                            }
-                            newFeature.properties.warnings = [];
-                            for (var k in activeArea) {
-                                newFeature.properties.warnings.push(activeArea[k].warnings);
-                            }
-                            lgeojson.addData(newFeature);
+                        }
+                        var geoPoints = areaInfo.polygon.geoPoint;
+                        geoPoints.sort(function(a, b){
+                            var keyA = parseInt(a.sortIndex),
+                                keyB = parseInt(b.sortIndex);
+                            // Compare the 2 objects
+                            if (keyA < keyB) return -1;
+                            if (keyA > keyB) return 1;
+                            return 0;
+                        }); 
+                        for (var k in geoPoints) {
+                            var point = geoPoints[k];
+                            var coords = [parseFloat(point.lon),
+                                          parseFloat(point.lat)]
+                            newFeature.geometry.coordinates[0].push(coords);
+                        }
+                        newFeature.properties.warnings = [];
+                        for (var k in activeArea) {
+                            newFeature.properties.warnings.push(activeArea[k].warnings);
+                        }
+                        lgeojson.addData(newFeature);
                     };
 
                     var soapOptions = {
