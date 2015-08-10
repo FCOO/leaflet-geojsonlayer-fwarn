@@ -3,6 +3,7 @@
     'use strict';
     L.GeoJSON.Fwarn = L.GeoJSON.extend({
         options: {
+            language: 'en',
             soap: {
                 url: 'http://api.fcoo.dk/ws_fwarn/services/DamsaFwarn',
                 appendMethodToURL: false,
@@ -96,7 +97,11 @@
                     };
                     $.soap(soapOptions);
                 });
-                var popup_template = '<div class="fwarn"><h3>Firing warnings</h3>{warnings}<p>{body}</p></div>';
+                if (that.options.language === 'da') {
+                    var popup_template = '<div class="fwarn"><h3>Skydevarsler</h3>{warnings}<p>{body}</p></div>';
+                } else {
+                    var popup_template = '<div class="fwarn"><h3>Firing warnings</h3>{warnings}<p>{body}</p></div>';
+                }
                 lgeojson = L.geoJson(geojson, {
                     onEachFeature: function (feature, layer) {
                         // Bind click
@@ -106,7 +111,13 @@
                                 var latlng = evt.latlng;
                                 var activeAreasAtPoint = leafletPip.pointInLayer(latlng, lgeojson);
                                 var area_template = '<h5>{name}</h5>';
-                                var warning_template = '<p>Warning start time: {warningStartTime} UTC</p><p>Warning end time: {warningEndTime} UTC</p><p>Publication time: {publicationTime} UTC</p><hr/>';
+                                if (that.options.language === 'da') {
+                                    var warning_template = '<p>Varsel starttid: {warningStartTime} UTC</p><p>Varsel sluttid: {warningEndTime} UTC</p><p>Publikationstid: {publicationTime} UTC</p><hr/>';
+                                    var body = '<h4>Yderligere information</h4>';
+                                } else {
+                                    var warning_template = '<p>Warning start time: {warningStartTime} UTC</p><p>Warning end time: {warningEndTime} UTC</p><p>Publication time: {publicationTime} UTC</p><hr/>';
+                                    var body = '<h4>Further information (in Danish)</h4>';
+                                }
                                 var innerhtml = popup_template;
                                 var all_warnings = '';
                                 for (var k in activeAreasAtPoint) {
@@ -121,7 +132,6 @@
                                     all_warnings += area + warnings;
                                 }
                                 innerhtml = innerhtml.replace('{warnings}', all_warnings);
-                                var body = '<h4>Further information (in Danish)</h4>';
                                 for (var k in activeAreasAtPoint) {
                                     var myFeature = activeAreasAtPoint[k].feature;
                                     var myBody = area_template.replace('{name}', myFeature.properties.name);
@@ -154,10 +164,14 @@
             };
 
             // Make SOAP request
+            var language = 'english';
+            if (this.options.language === 'da') {
+                var language = 'danish';
+            };
             var soapOptions = {
                 method: 'ActiveAreas',
                 data: {
-                    language: 'english'
+                    language: language
                 },
             }
             $.extend(soapOptions, this.options.soap);
