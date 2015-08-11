@@ -5,7 +5,7 @@
         options: {
             language: 'en',
             soap: {
-                url: 'http://api.fcoo.dk/ws_fwarn/services/DamsaFwarn',
+                url: location.protocol + '//api.fcoo.dk/ws_fwarn/services/DamsaFwarn',
                 appendMethodToURL: false,
                 soap12: false,
                 SOAPAction: "",
@@ -23,7 +23,13 @@
         onAdd: function (map) {
             var that = this;
             var success_activeareas = function (soapResponse) {
-                var jsonResponse = soapResponse.toJSON()['Body']['ActiveAreasResponse']['area'];
+                var jsonResponse = soapResponse.toJSON();
+                if (jsonResponse.hasOwnProperty('soap:Body')) {
+                    // IE9
+                    jsonResponse = jsonResponse['soap:Body']['ActiveAreasResponse']['area'];
+                } else {
+                    jsonResponse = jsonResponse['Body']['ActiveAreasResponse']['area'];
+                }
                 if (jsonResponse.constructor !== Array) {
                     jsonResponse = [jsonResponse];
                 }
@@ -46,7 +52,13 @@
                 // For each active area we ask for static area information
                 activeAreas.forEach(function(activeArea) {
                     var success_staticareainfo = function (soapResponse) {
-                        var areaInfo = soapResponse.toJSON()['Body']['StaticAreaInfoResponse']['areaInfo'];
+                        var areaInfo = soapResponse.toJSON();
+                        if (areaInfo.hasOwnProperty('soap:Body')) {
+                            // IE9
+                            areaInfo = areaInfo['soap:Body']['StaticAreaInfoResponse']['areaInfo'];
+                        } else {
+                            areaInfo = areaInfo['Body']['StaticAreaInfoResponse']['areaInfo'];
+                        }
                         var newFeature = {
                             "type": "Feature",
                             "geometry": {
