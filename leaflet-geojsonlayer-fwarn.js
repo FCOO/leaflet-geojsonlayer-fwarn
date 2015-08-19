@@ -9,7 +9,7 @@
                 // Bind click
                 layer.on({
                     click: function (evt) {
-                        if (feature.language === 'da') {
+                        if (feature.properties.language === 'da') {
                             var popup_template = '<div class="fwarn"><h3>Skydevarsler</h3>{warnings}<p>{body}</p></div>';
                             var warning_template = '<p>Varsel starttid: {warningStartTime} UTC</p><p>Varsel sluttid: {warningEndTime} UTC</p><p>Publikationstid: {publicationTime} UTC</p><hr/>';
                             var body = '<h4>Yderligere information</h4>';
@@ -58,7 +58,7 @@
                         }
                         innerhtml = innerhtml.replace('{warnings}', all_warnings);
                         innerhtml = innerhtml.replace('{body}', body);
-                        layer._map.openPopup(innerhtml, latlng, {maxWidth: 350, maxHeight: 400});
+                        layer._map.openPopup(innerhtml, latlng, {maxWidth: 300, maxHeight: 400});
                     }
                 });
             },
@@ -75,7 +75,11 @@
             var that = this;
             L.setOptions(this, options);
             this._layers = {};
-            this.options.url = this.options.baseurl.replace('{language}', this.options.language);
+            //this.options.url = this.options.baseurl.replace('{language}', this.options.language);
+            // TODO: The 'en' firing warnings are in an unknown timezone
+            // so for now we use the times provided by the danish firing
+            // warnings.
+            this.options.url = this.options.baseurl.replace('{language}', 'da');
         },
 
         onAdd: function (map) {
