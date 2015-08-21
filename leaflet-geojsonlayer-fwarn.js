@@ -67,7 +67,8 @@
                 color: "#e2007a",
                 opacity: 1,
                 fillColor: "#e2007a",
-                fillOpacity: 0.2
+                fillOpacity: 0.2,
+                fillRule: 'nonzero'
             }
         },
 
