@@ -10,11 +10,11 @@
                 layer.on({
                     click: function (evt) {
                         if (feature.properties.language === 'da') {
-                            var popup_template = '<div class="fwarn"><h3>Skydevarsler</h3>{warnings}<p>{body}</p></div>';
+                            var popup_template = '<div class="fwarn"><h3>Skydevarsler</h3>{warnings}<p>Kilde: <a href="http://www.soefartsstyrelsen.dk">Søfartsstyrelsen</a></p><hr/><p>{body}</p></div>';
                             var warning_template = '<p>Varsel starttid: {warningStartTime} UTC</p><p>Varsel sluttid: {warningEndTime} UTC</p><p>Publikationstid: {publicationTime} UTC</p><hr/>';
                             var body = '<h4>Yderligere information</h4>';
                         } else {
-                            var popup_template = '<div class="fwarn"><h3>Firing warnings</h3>{warnings}<p>{body}</p></div>';
+                            var popup_template = '<div class="fwarn"><h3>Firing warnings</h3>{warnings}<p>Source: <a href="http://dma.dk">Danish Maritime Authority</a></p><hr/><p>{body}</p></div>';
                             var warning_template = '<p>Warning start time: {warningStartTime} UTC</p><p>Warning end time: {warningEndTime} UTC</p><p>Publication time: {publicationTime} UTC</p><hr/>';
                             var body = '<h4>Further information (in Danish)</h4>';
                         }
