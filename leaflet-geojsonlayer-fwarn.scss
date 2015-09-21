@@ -1,0 +1,100 @@
+.fwarn {
+	$margin	: 10px;
+	$padding: 3px;
+
+	$bg-color-0: #FFFFFF;
+	$bg-color-3: #EEEEEE;
+	$bg-color-2: #DDDDDD; //#CCCCCC;
+	$bg-color-1: #CCCCCC; //#AAAAAA;
+
+	p { margin: 0; }
+
+	h1 {	//Main header
+		margin		: 0;
+		padding		: $padding;
+		font-size	: 130%;
+	}
+
+	.container {
+		width			: 340px;
+		height		: 180px;
+		overflow-y: scroll;
+	}
+
+	h2 { //Area header
+		margin		: 0;
+		padding		: $padding;
+		font-size	: 120%;
+		background-color: $bg-color-1;
+		&:not(:first-child){ border-top: 3px solid $bg-color-0}
+	}
+
+	.area { //Inner div with periods and informations
+		margin					: 0;
+		padding-bottom	: $margin;
+		background-color: $bg-color-1;
+	}
+
+	h3 {	//Period and Information Header
+		margin			: 0;
+		margin-left	: $margin;
+		margin-right: $margin;
+
+		padding			: $padding;
+
+		font-size		: 110%;
+		background-color: $bg-color-2;
+		&:not(:first-child){ border-top: 3px solid $bg-color-1}
+	
+	}
+
+	.inner { //Div with list of period or informations
+		margin				: 0;
+		margin-left		: $margin;
+		margin-right	: $margin;
+		margin-bottom	: $padding;
+
+		padding				: 0;
+		padding-bottom: $margin;
+
+		font-size				: 100%;
+		background-color: $bg-color-2;
+	}
+
+	.detail {
+		margin			: 0;
+		margin-left	: $margin;
+		margin-right: $margin;
+
+		padding			: $padding;
+
+		&:not(:last-child){ border-bottom: 1px solid black; }
+
+		font-size				: 100%;
+		background-color: $bg-color-3;
+	}
+
+	.period { 
+		font-family: 'Courier New'; 
+	}
+
+	hr {
+		margin-top		: $padding;
+		margin-bottom	: $padding;
+	}
+
+	.open, .closed { 
+		cursor: pointer; 
+		&:before { font-family: 'Courier New'; font-size: 100%;}
+	}
+	.open {
+		&:before { content: '-'; }
+		& + * {display:block}
+	}
+	.closed {
+		&:before { content: '+'; }
+		&:after { content: '...'; }
+		& + * {display:none	}
+	}
+}
+
