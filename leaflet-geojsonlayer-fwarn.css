@@ -12,7 +12,7 @@
 .fwarn .container {
   width: 340px;
   height: 180px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000324}}
 .fwarn h2 {
