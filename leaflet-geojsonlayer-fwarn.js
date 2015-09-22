@@ -108,7 +108,7 @@
 
 						//Translate headers etc.
 						for (var i=0; i<translate.length; i++ )
-							popupHTML = replaceAll( popupHTML, translate[i].search, translate[i][evt.target._options.language] );
+							popupHTML = replaceAll( popupHTML, translate[i].search, translate[i][evt.target.options.language] );
 										
 						//Add onClick to headers
 						popupHTML = replaceAll( popupHTML, '{CLICK}', 'onClick="this.className = this.className==\'open\'?\'closed\':\'open\';"' );
