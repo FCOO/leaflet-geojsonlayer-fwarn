@@ -1,19 +1,110 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000310}}
 .fwarn p {
-    margin: 0;
+  margin: 0;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000312}}
+.fwarn h1 {
+  margin: 0;
+  padding: 3px;
+  font-size: 130%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000318}}
+.fwarn .container {
+  width: 340px;
+  height: 180px;
+  overflow-y: auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000324}}
+.fwarn h2 {
+  margin: 0;
+  padding: 3px;
+  font-size: 120%;
+  background-color: #CCCCCC;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000329}}
+.fwarn h2:not(:first-child) {
+  border-top: 3px solid #FFFFFF;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000332}}
+.fwarn .area {
+  margin: 0;
+  padding-bottom: 10px;
+  background-color: #CCCCCC;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000338}}
 .fwarn h3 {
-    margin-top: 3px;
-    margin-bottom: 6px;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 3px;
+  font-size: 110%;
+  background-color: #DDDDDD;
 }
-.fwarn h4 {
-    margin-top: 3px;
-    margin-bottom: 6px;
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000347}}
+.fwarn h3:not(:first-child) {
+  border-top: 3px solid #CCCCCC;
 }
-.fwarn h5 {
-    margin-top: 2px;
-    margin-bottom: 2px;
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000351}}
+.fwarn .inner {
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 3px;
+  padding: 0;
+  padding-bottom: 10px;
+  font-size: 100%;
+  background-color: #DDDDDD;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000364}}
+.fwarn .detail {
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 3px;
+  font-size: 100%;
+  background-color: #EEEEEE;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000371}}
+.fwarn .detail:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000377}}
+.fwarn .period {
+  font-family: 'Courier New';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000381}}
 .fwarn hr {
-    margin-top: 3px;
-    margin-bottom: 3px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000386}}
+.fwarn .open, .fwarn .closed {
+  cursor: pointer;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000388}}
+.fwarn .open:before, .fwarn .closed:before {
+  font-family: 'Courier New';
+  font-size: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000391}}
+.fwarn .open:before {
+  content: '-';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000392}}
+.fwarn .open + * {
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000395}}
+.fwarn .closed:before {
+  content: '+';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000396}}
+.fwarn .closed:after {
+  content: '...';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/web-dev\/leaflet-geojsonlayer-fwarn\/leaflet-geojsonlayer-fwarn\.scss}line{font-family:\0000397}}
+.fwarn .closed + * {
+  display: none;
+}
+
+/*# sourceMappingURL=leaflet-geojsonlayer-fwarn.css.map */

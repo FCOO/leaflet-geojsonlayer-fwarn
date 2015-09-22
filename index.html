@@ -11,6 +11,7 @@
     <div id="map" style="width: 600px; height: 400px"></div>
     <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+		<script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/jquery.soap/jquery.soap.js"></script>
     <script src="bower_components/jquery.xml2json/src/jquery.xml2json.js"></script>
     <script src="bower_components/leaflet-pip/leaflet-pip.js"></script>
@@ -21,7 +22,7 @@
             maxZoom: 18,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</a>'
         }).addTo(map);
-        var fwarn = new L.GeoJSON.Fwarn({});
+        var fwarn = new L.GeoJSON.Fwarn({language: 'en', protocol:'https:'});
         map.addLayer(fwarn);
     </script>
 </body>
