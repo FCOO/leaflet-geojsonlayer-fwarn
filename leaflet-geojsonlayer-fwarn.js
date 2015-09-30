@@ -58,7 +58,7 @@
   L.GeoJSON.Fwarn = L.GeoJSON.extend({
       options: {
           language: 'en',
-          timezone: 'utc',
+          timezone: 'local',
           protocol: location.protocol,
           baseurl: '//app.fcoo.dk/warnings/fwarn/fwarn_{language}.json',
           style: {
