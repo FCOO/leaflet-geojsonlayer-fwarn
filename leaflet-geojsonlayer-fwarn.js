@@ -53,7 +53,21 @@
                     '<strong>{FROM}</strong> {warningStartTime}<br><strong>{TO}</strong> {warningEndTime}'+
                   '</div>', 
   };
-    
+
+  function boundingBoxAroundPolyCoords (coords) {
+    var xAll = [], yAll = []
+
+    for (var i = 0; i < coords[0].length; i++) {
+      xAll.push(coords[0][i][1])
+      yAll.push(coords[0][i][0])
+    }
+
+    xAll = xAll.sort(function (a,b) { return a - b })
+    yAll = yAll.sort(function (a,b) { return a - b })
+
+    return [ [xAll[0], yAll[0]], [xAll[xAll.length - 1], yAll[yAll.length - 1]] ]
+  };
+
     
   L.GeoJSON.Fwarn = L.GeoJSON.extend({
       options: {
@@ -91,16 +105,19 @@
                         },
                         coordinates = layer.feature.geometry.coordinates,
                         popupHTML = template.popup,
-                        areasHTML = '';
+                        areasHTML = '',
+                        areasHTMLFallback = '';
     
                     for (var i in coordinates) {
                       var polygon = {
                             type: 'Polygon',
                             coordinates: coordinates[i]
                           },
-                          inPolygon = gju.pointInPolygon(point, polygon);
+                          inPolygon = gju.pointInPolygon(point, polygon),
+                          bbox = boundingBoxAroundPolyCoords(polygon.coordinates),
+                          inBox = gju.pointInBoundingBox(point, bbox);
         
-                      if (inPolygon) {
+                      if (inPolygon || inBox) {
                         //Get the data and create the innerHTML (areaHTML) for the layer
                         var properties = layer.feature.properties,
                             name = properties.name[i],
@@ -128,15 +145,25 @@
                         } 
                         areaHTML = areaHTML.replace('{informations}', infoHTML || 'NO INFO');
             
-                        areasHTML += areaHTML;
+                        if (inPolygon) {
+                            areasHTML += areaHTML;
+                        } else if (inBox) {
+                            areasHTMLFallback += areaHTML;
+                        }
             
                       } //end of if (inPolygon)..
+                    }
+
+                    // If we did not find any points in polygon we use the 
+                    // bbox fallback
+                    if (areasHTML == '') {
+                        areasHTML = areasHTMLFallback;
                     }
                     popupHTML = popupHTML.replace('{areas}', areasHTML);
     
                     //Translate headers etc.
                     for (var i=0; i<translate.length; i++ )
-                      popupHTML = replaceAll( popupHTML, translate[i].search, translate[i][evt.target.options.language] );
+                      popupHTML = replaceAll( popupHTML, translate[i].search, translate[i][that.options.language] );
                             
                     //Add onClick to headers
                     popupHTML = replaceAll( popupHTML, '{CLICK}', 'onClick="this.className = this.className==\'open\'?\'closed\':\'open\';"' );
