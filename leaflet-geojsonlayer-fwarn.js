@@ -93,6 +93,13 @@
           // so for now we use the times provided by the danish firing
           // warnings.
           this.options.url = this.options.protocol  + this.options.baseurl.replace('{language}', 'da'/*this.options.language*/);
+
+          // jqxhr is a jQuery promise to get the requested JSON data
+          this.jqxhr = $.getJSON(this.options.url);
+          this.jqxhr.done(function (data) {
+              that.addData(data);
+          });
+
           this.options.onEachFeature = function (feature, layer) {
               // Bind click
               layer.on({
@@ -176,10 +183,10 @@
 
       onAdd: function (map) {
         var that = this;
-        $.getJSON(this.options.url, function (data) {
-          that.addData(data);
-          L.GeoJSON.prototype.onAdd.call(that, map);
+        this.jqxhr.done(function (data) {
+             L.GeoJSON.prototype.onAdd.call(that, map);
         });
+
         // Whenever the timezone is changed we will change the internal timezone
         map.on("timezonechange", function(data) {
             that.options.timezone = data.timezone;
