@@ -116,49 +116,51 @@
                         areasHTMLFallback = '';
     
                     for (var i in coordinates) {
-                      var polygon = {
-                            type: 'Polygon',
-                            coordinates: coordinates[i]
-                          },
-                          inPolygon = gju.pointInPolygon(point, polygon),
-                          bbox = boundingBoxAroundPolyCoords(polygon.coordinates),
-                          inBox = gju.pointInBoundingBox(point, bbox);
+                      if(Object.prototype.toString.call(coordinates[i]) === '[object Array]' ) {
+                        var polygon = {
+                              type: 'Polygon',
+                              coordinates: coordinates[i]
+                            },
+                            inPolygon = gju.pointInPolygon(point, polygon),
+                            bbox = boundingBoxAroundPolyCoords(polygon.coordinates),
+                            inBox = gju.pointInBoundingBox(point, bbox);
         
-                      if (inPolygon || inBox) {
-                        //Get the data and create the innerHTML (areaHTML) for the layer
-                        var properties = layer.feature.properties,
-                            name = properties.name[i],
-                            areaHTML = template.area.replace('{name}', name);
+                        if (inPolygon || inBox) {
+                          //Get the data and create the innerHTML (areaHTML) for the layer
+                          var properties = layer.feature.properties,
+                              name = properties.name[i],
+                              areaHTML = template.area.replace('{name}', name);
         
-                        //Append all the warning/periods
-                        var periodsHTML = '';
-                        for (var k in properties.warnings[i]) {
-                          var warningObj = properties.warnings[i][k];
+                          //Append all the warning/periods
+                          var periodsHTML = '';
+                          for (var k in properties.warnings[i]) {
+                            var warningObj = properties.warnings[i][k];
+          
+                            periodsHTML += template.period;
+                            //periodsHTML = replaceWithDateAsHTML(periodsHTML, '{publicationTime}', warningObj.publicationTime);
+                            periodsHTML = replaceWithDateAsHTML(periodsHTML, '{warningStartTime}', warningObj.warningStartTime,
+                                                                that.options.language, that.options.timezone);
+                            periodsHTML = replaceWithDateAsHTML(periodsHTML, '{warningEndTime}', warningObj.warningEndTime,
+                                                                that.options.language, that.options.timezone);
+                          }
+                          areaHTML = areaHTML.replace('{periods}', periodsHTML);
         
-                          periodsHTML += template.period;
-                          //periodsHTML = replaceWithDateAsHTML(periodsHTML, '{publicationTime}', warningObj.publicationTime);
-                          periodsHTML = replaceWithDateAsHTML(periodsHTML, '{warningStartTime}', warningObj.warningStartTime,
-                                                              that.options.language, that.options.timezone);
-                          periodsHTML = replaceWithDateAsHTML(periodsHTML, '{warningEndTime}', warningObj.warningEndTime,
-                                                              that.options.language, that.options.timezone);
-                        }
-                        areaHTML = areaHTML.replace('{periods}', periodsHTML);
-        
-                        //Append all information
-                        var infoHTML = '';
-                        for (var k in properties.textInfo[i]) {
-                          var text = properties.textInfo[i][k];
-                          infoHTML += '<div class="detail"><strong>' + text.header + '</strong><br>'+ text.body +'</div>';
-                        } 
-                        areaHTML = areaHTML.replace('{informations}', infoHTML || 'NO INFO');
+                          //Append all information
+                          var infoHTML = '';
+                          for (var k in properties.textInfo[i]) {
+                            var text = properties.textInfo[i][k];
+                            infoHTML += '<div class="detail"><strong>' + text.header + '</strong><br>'+ text.body +'</div>';
+                          } 
+                          areaHTML = areaHTML.replace('{informations}', infoHTML || 'NO INFO');
+              
+                          if (inPolygon) {
+                              areasHTML += areaHTML;
+                          } else if (inBox) {
+                              areasHTMLFallback += areaHTML;
+                          }
             
-                        if (inPolygon) {
-                            areasHTML += areaHTML;
-                        } else if (inBox) {
-                            areasHTMLFallback += areaHTML;
-                        }
-            
-                      } //end of if (inPolygon)..
+                        } //end of if (inPolygon)..
+                      }
                     }
 
                     // If we did not find any points in polygon we use the 
@@ -168,11 +170,15 @@
                     }
                     popupHTML = popupHTML.replace('{areas}', areasHTML);
     
-                    //Translate headers etc.
-                    for (var i=0; i<translate.length; i++ )
-                      popupHTML = replaceAll( popupHTML, translate[i].search, translate[i][that.options.language] );
+                    // Translate headers etc.
+                    for (var i=0; i<translate.length; i++ ) {
+                      var search = $(translate[i]).attr('search');
+                      if (typeof search !== typeof undefined && search !== false) {
+                        popupHTML = replaceAll( popupHTML, translate[i].search, translate[i][that.options.language] );
+                      }
+                    }
                             
-                    //Add onClick to headers
+                    // Add onClick to headers
                     popupHTML = replaceAll( popupHTML, '{CLICK}', 'onClick="this.className = this.className==\'open\'?\'closed\':\'open\';"' );
         
                     layer._map.openPopup(popupHTML, latlng, {maxWidth: 300, maxHeight: 240});
