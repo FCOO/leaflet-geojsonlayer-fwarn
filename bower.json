@@ -1,11 +1,31 @@
 {
   "name": "leaflet-geojsonlayer-fwarn",
-  "main": "leaflet-geojsonlayer-fwarn.js",
   "version": "0.1.0",
+  "homepage": "https://github.com/FCOO/leaflet-geojsonlayer-fwarn",
   "authors": [
-    "Jesper Baasch-Larsen <jla@fcoo.dk>"
+    "Jesper Larsen <jla@fcoo.dk>",
+    "Niels Holt <nho@fcoo.dk>"
   ],
   "description": "Danish Firing Warnings layer for Leaflet",
+  "main": [
+    "dist/leaflet-geojsonlayer-fwarn.min.js",
+    "dist/leaflet-geojsonlayer-fwarn.min.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FCOO/leaflet-geojsonlayer-fwarn.git"
+  },
+  "dependencies": {
+    "jquery": "latest",
+    "moment": "latest",
+    "leaflet-pip": "~0.1.0",
+    "leaflet": "^0.7.7"
+  },
+  "devDependencies": {
+    "bourbon": "latest",
+    "modernizr-mixin": "latest",
+    "mathsass": "latest"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -14,9 +34,7 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "jquery.soap": "~1.6.5",
-    "leaflet-pip": "~0.1.0",
-    "moment": "latest"
-  }
+  "moduleType": [
+    "es6"
+  ]
 }

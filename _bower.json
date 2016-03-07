@@ -1,0 +1,22 @@
+{
+  "name": "leaflet-geojsonlayer-fwarn",
+  "main": "leaflet-geojsonlayer-fwarn.js",
+  "version": "0.1.0",
+  "authors": [
+    "Jesper Baasch-Larsen <jla@fcoo.dk>"
+  ],
+  "description": "Danish Firing Warnings layer for Leaflet",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery.soap": "~1.6.5",
+    "leaflet-pip": "~0.1.0",
+    "moment": "latest"
+  }
+}
