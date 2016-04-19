@@ -1,6 +1,6 @@
 {
   "name": "leaflet-geojsonlayer-fwarn",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "homepage": "https://github.com/FCOO/leaflet-geojsonlayer-fwarn",
   "authors": [
     "Jesper Larsen <jla@fcoo.dk>",
@@ -19,7 +19,9 @@
     "jquery": "latest",
     "moment": "latest",
     "leaflet": "^0.7.7",
-    "leaflet-pip": "jblarsen/leaflet-pip#gh-pages"
+    "leaflet-pip": "jblarsen/leaflet-pip#gh-pages",
+    "leaflet-popup-extensions": "fcoo/leaflet-popup-extensions",
+    "leaflet-latlng-format": "fcoo/leaflet-latlng-format"
   },
   "devDependencies": {
     "bourbon": "latest",
