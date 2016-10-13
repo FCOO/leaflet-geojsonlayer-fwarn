@@ -1,6 +1,6 @@
 {
   "name": "leaflet-geojsonlayer-fwarn",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "homepage": "https://github.com/FCOO/leaflet-geojsonlayer-fwarn",
   "authors": [
     "Jesper Larsen <jla@fcoo.dk>",
@@ -8,8 +8,8 @@
   ],
   "description": "Danish Firing Warnings layer for Leaflet",
   "main": [
-    "dist/leaflet-geojsonlayer-fwarn.min.js",
-    "dist/leaflet-geojsonlayer-fwarn.min.css"
+    "dist/leaflet-geojsonlayer-fwarn.js",
+    "dist/leaflet-geojsonlayer-fwarn.css"
   ],
   "repository": {
     "type": "git",
