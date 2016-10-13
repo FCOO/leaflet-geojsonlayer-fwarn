@@ -1,10 +1,10 @@
 /***********************************************
-	leaflet-geojsonlayer-fwarn.scss, 
+    leaflet-geojsonlayer-fwarn.scss, 
 
-	(c) 2016, FCOO
+    (c) 2016, FCOO
 
-	https://github.com/FCOO/leaflet-geojsonlayer-fwarn
-	https://github.com/FCOO
+    https://github.com/FCOO/leaflet-geojsonlayer-fwarn
+    https://github.com/FCOO
 
 
 ************************************************/
@@ -18,102 +18,102 @@
 @import "../bower_components/mathsass/dist/math";
 
 .fwarn {
-	$margin	: 5px;
-	$padding: 3px;
+    $margin    : 5px;
+    $padding: 3px;
 
-	$bg-color-0: #FFFFFF;
-	$bg-color-3: #EEEEEE;
-	$bg-color-2: #DDDDDD; //#CCCCCC;
-	$bg-color-1: #CCCCCC; //#AAAAAA;
+    $bg-color-0: #FFFFFF;
+    $bg-color-3: #EEEEEE;
+    $bg-color-2: #DDDDDD; //#CCCCCC;
+    $bg-color-1: #CCCCCC; //#AAAAAA;
 
-	p { margin: 0; }
+    p { margin: 0; }
 
-	h1 {	//Main header
-		margin		: 0;
-		padding		: $padding;
-		font-size	: 130%;
-	}
+    h1 {    //Main header
+        margin        : 0;
+        padding        : $padding;
+        font-size    : 130%;
+    }
 
-	.container {
-		width			: 300px;
-		height		: 180px;
-		overflow-y: auto;
-	}
+    .container {
+        width     : 300px;
+        height    : 180px;
+        overflow-y: auto;
+    }
 
-	h2 { //Area header
-		margin		: 0;
-		padding		: $padding;
-		font-size	: 120%;
-		background-color: $bg-color-1;
-		&:not(:first-child){ border-top: 3px solid $bg-color-0}
-	}
+    h2 { //Area header
+        margin          : 0;
+        padding         : $padding;
+        font-size       : 120%;
+        background-color: $bg-color-1;
+        &:not(:first-child){ border-top: 3px solid $bg-color-0}
+    }
 
-	.area { //Inner div with periods and informations
-		margin					: 0;
-		padding-bottom	: $margin;
-		background-color: $bg-color-1;
-	}
+    .area { //Inner div with periods and informations
+        margin                    : 0;
+        padding-bottom    : $margin;
+        background-color: $bg-color-1;
+    }
 
-	h3 {	//Period and Information Header
-		margin			: 0;
-		margin-left	: $margin;
-		margin-right: $margin;
+    h3 {    //Period and Information Header
+        margin            : 0;
+        margin-left    : $margin;
+        margin-right: $margin;
 
-		padding			: $padding;
+        padding            : $padding;
 
-		font-size		: 110%;
-		background-color: $bg-color-2;
-		&:not(:first-child){ border-top: 3px solid $bg-color-1}
-	
-	}
+        font-size        : 110%;
+        background-color: $bg-color-2;
+        &:not(:first-child){ border-top: 3px solid $bg-color-1}
+    
+    }
 
-	.inner { //Div with list of period or informations
-		margin				: 0;
-		margin-left		: $margin;
-		margin-right	: $margin;
-		margin-bottom	: $padding;
+    .inner { //Div with list of period or informations
+        margin                : 0;
+        margin-left        : $margin;
+        margin-right    : $margin;
+        margin-bottom    : $padding;
 
-		padding				: 0;
-		padding-bottom: $margin;
+        padding                : 0;
+        padding-bottom: $margin;
 
-		font-size				: 100%;
-		background-color: $bg-color-2;
-	}
+        font-size                : 100%;
+        background-color: $bg-color-2;
+    }
 
-	.detail {
-		margin			: 0;
-		margin-left	: $margin;
-		margin-right: $margin;
+    .detail {
+        margin            : 0;
+        margin-left    : $margin;
+        margin-right: $margin;
 
-		padding			: $padding;
+        padding            : $padding;
 
-		&:not(:last-child){ border-bottom: 1px solid black; }
+        &:not(:last-child){ border-bottom: 1px solid black; }
 
-		font-size				: 100%;
-		background-color: $bg-color-3;
-	}
+        font-size                : 100%;
+        background-color: $bg-color-3;
+    }
 
-	.period { 
-		font-family: 'Courier New'; 
-	}
+    .period { 
+        font-family: 'Courier New'; 
+    }
 
-	hr {
-		margin-top		: $padding;
-		margin-bottom	: $padding;
-	}
+    hr {
+        margin-top        : $padding;
+        margin-bottom    : $padding;
+    }
 
-	.open, .closed { 
-		cursor: pointer; 
-		&:before { font-family: 'Courier New'; font-size: 100%;}
-	}
-	.open {
-		&:before { content: '-'; }
-		& + * {display:block}
-	}
-	.closed {
-		&:before { content: '+'; }
-		&:after { content: '...'; }
-		& + * {display:none	}
-	}
+    .open, .closed { 
+        cursor: pointer; 
+        &:before { font-family: 'Courier New'; font-size: 100%;}
+    }
+    .open {
+        &:before { content: '-'; }
+        & + * {display:block}
+    }
+    .closed {
+        &:before { content: '+'; }
+        &:after { content: '...'; }
+        & + * {display:none    }
+    }
 }
 

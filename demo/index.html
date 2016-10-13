@@ -27,12 +27,12 @@
 	<script src="../src/leaflet-geojsonlayer-fwarn.js"></script>
 	<script>
 		var map = L.map('map',{mousepositionControl:true}).setView([56.2, 11.5], 6);
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 18,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</a>'
-    }).addTo(map);
-    var fwarn = new L.GeoJSON.Fwarn({language: 'en', protocol:'https:'});
-    map.addLayer(fwarn);
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</a>'
+        }).addTo(map);
+        var fwarn = new L.GeoJSON.Fwarn({language: 'en', protocol:'https:'});
+        map.addLayer(fwarn);
 	</script>
 </body>
 </html>
