@@ -220,9 +220,7 @@
                     maxHeight : 400,
                     header    : header,
                     getContent: fwarnFeature.updatePopup,
-                    context   : fwarnFeature,
-
-                    //updateOnMapEvents    : 'latlngformatchange'
+                    context   : fwarnFeature
                 });
       };
 
