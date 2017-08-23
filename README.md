@@ -3,7 +3,8 @@
 
 
 ## Description
-Leaflet control for Danish Firing Warning notices. The notices are provided by the Danish Maritime Authority but this layer uses a proxy service provided by the Danish Defence Centre for Operational Oceanography.
+Leaflet control for Danish Firing Warning notices. 
+The notices are provided by the Danish Maritime Authority at https://niord.dma.dk
 
 
 ## Installation
@@ -15,7 +16,7 @@ http://FCOO.github.io/leaflet-geojsonlayer-fwarn/demo/
 
 ## Usage
 
-	var fwarn = new L.GeoJSON.Fwarn({language: 'en', protocol:'https:'});
+	var fwarn = new L.GeoJSON.Fwarn({language: 'da'});
 	map.addLayer(fwarn);
 
 
@@ -23,8 +24,6 @@ http://FCOO.github.io/leaflet-geojsonlayer-fwarn/demo/
 | Id | Type | Default | Description |
 | :--: | :--: | :-----: | --- |
 language | string | "en" | Language code |
-timezone | string | "local" | Time-zone |
-style | [leaflet path](http://leafletjs.com/reference.html#path-options) | | Default: See `src\leaflet-geojsonlayer-fwarn.js `
 
 ### Methods
 
@@ -36,5 +35,5 @@ Copyright (c) 2015 [FCOO](https://github.com/FCOO)
 
 ## Contact information
 
-Jesper Larsen jla@fcoo.dk
+Niels Holt nho@fcoo.dk
 

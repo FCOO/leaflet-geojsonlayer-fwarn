@@ -8,43 +8,68 @@
 
 
 ************************************************/
+.path_fwarn {
+  stroke-width: 2;
+  stroke: #e2007a;
+  opacity: 1;
+  fill: #e2007a;
+  fill-opacity: 0.2;
+  fill-rule: 'nonzero'; }
+  .path_fwarn:hover {
+    fill-opacity: 0.7; }
+
 .fwarn p {
   margin: 0; }
 
-.fwarn h1 {
+.fwarn h3 {
+  margin-top: 3px;
+  margin-bottom: 6px; }
+
+.fwarn h4 {
+  margin-top: 2px;
+  margin-bottom: 2px; }
+
+.fwarn hr {
+  margin-top: 3px;
+  margin-bottom: 3px; }
+
+.OLDfwarn p {
+  margin: 0; }
+
+.OLDfwarn h1 {
   margin: 0;
   padding: 3px;
   font-size: 130%; }
 
-.fwarn .container {
+.OLDfwarn .container {
   width: 300px;
   height: 180px;
   overflow-y: auto; }
 
-.fwarn h2 {
+.OLDfwarn h2 {
   margin: 0;
   padding: 3px;
   font-size: 120%;
   background-color: #CCCCCC; }
-  .fwarn h2:not(:first-child) {
+  .OLDfwarn h2:not(:first-child) {
     border-top: 3px solid #FFFFFF; }
 
-.fwarn .area {
+.OLDfwarn .area {
   margin: 0;
   padding-bottom: 5px;
   background-color: #CCCCCC; }
 
-.fwarn h3 {
+.OLDfwarn h3 {
   margin: 0;
   margin-left: 5px;
   margin-right: 5px;
   padding: 3px;
   font-size: 110%;
   background-color: #DDDDDD; }
-  .fwarn h3:not(:first-child) {
+  .OLDfwarn h3:not(:first-child) {
     border-top: 3px solid #CCCCCC; }
 
-.fwarn .inner {
+.OLDfwarn .inner {
   margin: 0;
   margin-left: 5px;
   margin-right: 5px;
@@ -54,40 +79,40 @@
   font-size: 100%;
   background-color: #DDDDDD; }
 
-.fwarn .detail {
+.OLDfwarn .detail {
   margin: 0;
   margin-left: 5px;
   margin-right: 5px;
   padding: 3px;
   font-size: 100%;
   background-color: #EEEEEE; }
-  .fwarn .detail:not(:last-child) {
+  .OLDfwarn .detail:not(:last-child) {
     border-bottom: 1px solid black; }
 
-.fwarn .period {
+.OLDfwarn .period {
   font-family: 'Courier New'; }
 
-.fwarn hr {
+.OLDfwarn hr {
   margin-top: 3px;
   margin-bottom: 3px; }
 
-.fwarn .open, .fwarn .closed {
+.OLDfwarn .open, .OLDfwarn .closed {
   cursor: pointer; }
-  .fwarn .open:before, .fwarn .closed:before {
+  .OLDfwarn .open:before, .OLDfwarn .closed:before {
     font-family: 'Courier New';
     font-size: 100%; }
 
-.fwarn .open:before {
+.OLDfwarn .open:before {
   content: '-'; }
 
-.fwarn .open + * {
+.OLDfwarn .open + * {
   display: block; }
 
-.fwarn .closed:before {
+.OLDfwarn .closed:before {
   content: '+'; }
 
-.fwarn .closed:after {
+.OLDfwarn .closed:after {
   content: '...'; }
 
-.fwarn .closed + * {
+.OLDfwarn .closed + * {
   display: none; }
