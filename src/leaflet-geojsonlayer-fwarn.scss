@@ -1,5 +1,5 @@
 /***********************************************
-    leaflet-geojsonlayer-fwarn.scss, 
+    leaflet-geojsonlayer-fwarn.scss,
 
     (c) 2016, FCOO
 
@@ -8,8 +8,8 @@
 
 
 ************************************************/
-//BOURBON - http://bourbon.io/
-@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+//BOURBON - http://bourbon.io/ - version 5
+@import "../bower_components/bourbon/core/bourbon";
 
 //MODERNIZR-MIXIN - https://github.com/danielguillan/modernizr-mixin
 @import "../bower_components/modernizr-mixin/stylesheets/modernizr";
@@ -98,7 +98,7 @@
         font-size        : 110%;
         background-color: $bg-color-2;
         &:not(:first-child){ border-top: 3px solid $bg-color-1}
-    
+
     }
 
     .inner { //Div with list of period or informations
@@ -127,8 +127,8 @@
         background-color: $bg-color-3;
     }
 
-    .period { 
-        font-family: 'Courier New'; 
+    .period {
+        font-family: 'Courier New';
     }
 
     hr {
@@ -136,8 +136,8 @@
         margin-bottom    : $padding;
     }
 
-    .open, .closed { 
-        cursor: pointer; 
+    .open, .closed {
+        cursor: pointer;
         &:before { font-family: 'Courier New'; font-size: 100%;}
     }
     .open {
